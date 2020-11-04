@@ -1,0 +1,17 @@
+li {
+  list-style: none;
+}
+.main {
+  display: flex;
+}
+.cards__list {
+  display: flex;
+}
+.cards__list__item {
+  margin: 5px;
+  border: 3px solid gray;
+  cursor: pointer;
+}
+.img {
+  width: 300px;
+}
