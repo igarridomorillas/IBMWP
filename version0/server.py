@@ -258,6 +258,16 @@ macroinvertebrates = [
 ]
 
 
+# print ("\nCLAVE DICOTÓMICA\n\n1: Con concha\n2: Sin concha") #### my_json[].cards
+# opc1 = int(input("\n\tIntroduzca 1 / 2: "))
+    #if opc1 == 1:  #### macroinvertebrates[].name
+    # grupo = ("MOLLUSCA")
+
+# Sin concha(opc1) 
+    #elif opc1 == 2: #### my_json[].cards
+    #  print ("\n1: Con patas\n2: Sin patas")
+    #  opc2 = int(input("\n\tIntroduzca 1 / 2: "))
+
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -269,17 +279,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
         # ---
-      """
-        print ("\nCLAVE DICOTÓMICA\n\n1: Con concha\n2: Sin concha")
-        opc1 = int(input("\n\tIntroduzca 1 / 2: ")) #### my_json[].cards
-          if opc1 == 1: 
-            grupo = ("MOLLUSCA") #### macroinvertebrates[].name
-
-        # Sin concha(opc1) 
-          elif opc1 == 2: #### my_json[].option
-            print ("\n1: Con patas\n2: Sin patas") #### my_json[].cards
-            opc2 = int(input("\n\tIntroduzca 1 / 2: "))
-      """
 
         parametros_str=parsed_path.query
 
