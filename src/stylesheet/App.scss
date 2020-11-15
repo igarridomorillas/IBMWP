@@ -1,0 +1,12 @@
+.card-page {
+  &__cards {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.card {
+  background-color: rgb(119, 170, 153);
+  padding: 10px 30px;
+  cursor: pointer;
+  text-align: center;
+}

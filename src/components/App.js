@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import "../stylesheet/App.scss";
+import CardPage from "./Cards/CardPage";
+import Header from "./Header/Header";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <>Hola mundo</>;
-  }
-}
+const App = (props) => {
+  return (
+    <>
+      <Header />
+      <main className="main">
+        <CardPage />
+      </main>
+    </>
+  );
+};
 
 export default App;
