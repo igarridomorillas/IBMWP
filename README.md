@@ -1,6 +1,6 @@
-# IMBWP
+# IBMWP
 
-This is a **personal project** I'm currently working on. On this project I'm trying to integrate **Python** with **React** and **SCSS**.
+This is a **personal project** I'm currently working on. On this project I'm trying to integrate **Python** with **React** and **CSS**.
 
 The **BMWP**, or Biological Monitoring Working Party, is a procedure that measures **water quality** using the **macroinvertebrate families** as biological indicators. The **IBMWP** is a variant of the BMWP for the **Iberian Peninsula**.
 
