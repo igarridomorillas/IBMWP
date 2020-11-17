@@ -258,14 +258,14 @@ macroinvertebrates = [
 ]
 
 
-# print ("\nCLAVE DICOTÓMICA\n\n1: Con concha\n2: Sin concha") #### my_json[].cards
+# print ("\nCLAVE DICOTÓMICA\n\n1: Con concha\n2: Sin concha") #### my_json[0]
 # opc1 = int(input("\n\tIntroduzca 1 / 2: "))
-    #if opc1 == 1:  #### macroinvertebrates[].name
+    #if opc1 == 1:  #### macroinvertebrates[1]
     # grupo = ("MOLLUSCA")
 
 # Sin concha(opc1) 
-    #elif opc1 == 2: #### my_json[].cards
-    #  print ("\n1: Con patas\n2: Sin patas")
+    #elif opc1 == 2: #### my_json[1]
+    #  print ("\n1: Con patas\n2: Sin patas") bv
     #  opc2 = int(input("\n\tIntroduzca 1 / 2: "))
 
 
