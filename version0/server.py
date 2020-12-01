@@ -11,153 +11,171 @@ my_json = [
   {
     "option" : "Inicio",
     "cards" : {
-      "1":{
+      "1" : {
         "id" : 1,
         "description" : "Con concha.", # Mollusca
         "image" : "",
-        "next": "mollusca"
+        "next" : "mollusca"
       },
-      "2": {
+      "2" : {
         "id" : 2,
         "description" : "Sin concha.",
         "image" : "",
-        "next" : 3
+        "next" : 1
       }
     }
   },
   {
     "option" : "Sin concha.",
     "cards" : {
-      "3":{
+      "3" : {
         "id" : 3,
         "description" : "Con patas.",
         "image" : "",
-        "next": 3
+        "next" : 3
       },
-      "4":{
+      "4" : {
         "id" : 4,
         "description" : "Sin patas.",
-        "image" : ""
+        "image" : "",
+        "next" : 2
       }
     }
   },
    {
     "option" : "Sin patas",
     "cards" : {
-      "5":{
+      "5" : {
         "id" : 5,
         "description" : "Con colas y protuberancias.", # Diptera
-        "image" : ""
+        "image" : "",
+        "next" : "diptera"
       },
-      "6":{
+      "6" : {
         "id" : 6,
         "description" : "Forma de gusano, sin estas caracteristicas.", # Oligochaeta
-        "image" : ""
+        "image" : "",
+        "next" : "oligochaeta"
       }
     }
   },
   {
     "option" : "Con patas.",
     "cards" : {
-      "7":{
+      "7" : {
         "id" : 7,
         "description" : "Seis patas.", 
-        "image" : ""
+        "image" : "",
+        "next" : 4
       },
-      "8":{
+      "8" : {
         "id" : 8,
         "description" : "Ocho patas.", # Arachnida
-        "image" : ""
+        "image" : "",
+        "next" : "arachnida"
       },
-      "9":{
+      "9" : {
         "id" : 9,
         "description" : "Diez o más patas.", # Crustacea
-        "image" : ""
+        "image" : "",
+        "next" : "crustacea"
       }
     }
   },
   {
     "option" : "Seis patas.",
     "cards" : {
-      "10":{
+      "10" : {
         "id" : 10,
         "description" : "Constructores de casas. Con dos ganchos terminales.", # Trichoptera
-        "image" : ""
+        "image" : "",
+        "next" : "trichoptera"
       },
-      "11":{
+      "11" : {
         "id" : 11,
         "description" : "Sin estas características.",
-        "image" : ""
+        "image" : "",
+        "next" : 5
       }
     }
   },
   {
     "option" : "Sin estas características.",
     "cards" : {
-      "12":{
+      "12" : {
         "id" : 12,
         "description" : "Colas y antenas largas.",
-        "image" : ""
+        "image" : "",
+        "next" : 6
       },
-      "13":{
+      "13" : {
         "id" : 13,
         "description" : "Colas y antenas cortas.",
-        "image" : ""
+        "image" : "",
+        "next" : 7
       }
     }
   },
   {
     "option" : "Colas y antenas largas.",
     "cards" : {
-      "14":{
+      "14" : {
         "id" : 14,
         "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales.", # Ephemeroptera
-        "image" : ""
+        "image" : "",
+        "next" : "ephemeroptera"
       },
-      "15":{
+      "15" : {
         "id" : 15,
         "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales.", # Plecoptera
-        "image" : ""
+        "image" : "",
+        "next" : "plecoptera"
       }
     }
   },
   {
     "option" : "Colas y antenas cortas.",
     "cards" : {
-      "16":{
+      "16" : {
         "id" : 16,
         "description" : "Mandibulas bien desarrolladas.",
-       "image" : ""
+       "image" : "",
+        "next" : 8
       },
-      "17":{
+      "17" : {
         "id" : 17,
         "description" : "Pseudópodos abdominales.", # Lepidoptera
-        "image" : ""
+        "image" : "",
+        "next" : "lepidoptera"
       },
-      "18":{
+      "18" : {
         "id" : 18,
         "description" : "Piezas bucales en estilete.", # Hemiptera
-        "image" : ""
+        "image" : "",
+        "next" : "hemiptera"
       }
     }
   },
   {
-    "option" : "Mandibulas bien desarrolladas.",
+    "option" : "Mandíbulas bien desarrolladas.",
     "cards" : {
       "19":{
         "id" : 19,
         "description" : "Prolongaciones laterales. Dos uñas tarsales.", # Megaloptera
-        "image" : ""
+        "image" : "",
+        "next" : "megaloptera"
       },
       "20":{
         "id" : 20,
-        "description" : "Mandibulas prolongables.", # Odonata
-        "image" : ""
+        "description" : "Mandíbulas prolongables.", # Odonata
+        "image" : "",
+        "next" : "odonata"
       },
       "21":{
         "id" : 21,
         "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña.", # Coleoptera
-        "image" : ""
+        "image" : "",
+        "next" : "coleoptera"
       }
     }
   },
@@ -261,8 +279,9 @@ macroinvertebrates = {
 }
 
 
+
 class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):   # http://localhost:4443/?camino=con-concha,con-patas
+    def do_GET(self):   # http://localhost:4443/?preg=0&resp=2
         parsed_path = urlparse(self.path)
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
@@ -273,6 +292,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         parametros_str=parsed_path.query
         array_param = parametros_str.split("&")
+        #print(array_param)
         if len(array_param) == 2:
             param_preg = array_param[0].split("=")
             param_resp = array_param[1].split("=")
@@ -284,13 +304,18 @@ class RequestHandler(BaseHTTPRequestHandler):
             sel_ans = pregunta_recien_respondida["cards"][resp_id]
 
             next_item = sel_ans["next"]
-            print("respuesta" ,my_json[sel_ans["next"]])
-            print("de tipo:", type(next_item))
-
+            
             if type(sel_ans["next"]) == int:
                 self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
             else:
                 self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
+
+            # find encontrar la respuesta
+
+            # if next es numero
+
+
+          
 
         # --
         return
