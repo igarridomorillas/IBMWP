@@ -28,7 +28,6 @@ const App = () => {
 
   const handleClick = (next, id) => {
     const cardId = parseInt(id);
-    console.log(next, cardId);
     setAnswer(id);
     setQuestion(next);
   };

@@ -1,10 +1,11 @@
+import Macroinvertebrate from "../Macroinvertebrate/MacroInvertebrate";
+
 const { default: Card } = require("./Card");
 
 const CardPage = (props) => {
   let card;
   if (props.cardData.cards === undefined) {
-    console.log(props.cardData);
-    return (card = props.cardData.name);
+    return <Macroinvertebrate cardData={props.cardData} />;
   } else {
     card = Object.keys(props.cardData.cards).map((key) => {
       return (
