@@ -1,6 +1,6 @@
 const Card = (props) => {
   const handleClick = (ev) => {
-    props.sendClick(ev.currentTarget.id, props.cardDetail.next);
+    props.sendClick(props.cardDetail.position, ev.currentTarget.id);
   };
 
   return (

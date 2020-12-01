@@ -7,7 +7,7 @@ import CardPage from "./Cards/CardPage";
 import { sendData } from "../services/fetch";
 
 const App = () => {
-  const [question] = useState(0);
+  const [question, setQuestion] = useState(0);
   const [answer, setAnswer] = useState(0);
   const [cardData, setCardData] = useState({
     option: "",
@@ -26,9 +26,11 @@ const App = () => {
     });
   }, [answer]);
 
-  const handleClick = (id) => {
-    console.log(id);
+  const handleClick = (next, id) => {
+    const cardId = parseInt(id);
+    console.log(next, cardId);
     setAnswer(id);
+    setQuestion(next);
   };
 
   return (

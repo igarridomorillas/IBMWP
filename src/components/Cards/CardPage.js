@@ -4,6 +4,7 @@ const CardPage = (props) => {
   const card = Object.keys(props.cardData.cards).map((key) => {
     return (
       <Card
+        key={key}
         cardDetail={props.cardData.cards[key]}
         sendClick={props.sendClick}
       />
