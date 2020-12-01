@@ -281,18 +281,18 @@ macroinvertebrates = {
 
 
 class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):   # http://localhost:4443/?preg=0&resp=2
+    def do_GET(self):   # http://localhost:4443/?qu=0&ans=0
         parsed_path = urlparse(self.path)
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
-        # ---  RECOMIENDO QUE TE MIRES FLASK
+        # ---  MIRAR FLASK
 
         parametros_str=parsed_path.query
         array_param = parametros_str.split("&")
-        print(array_param)
+        
         if array_param == ['qu=0', 'ans=0']:
             self.wfile.write(json.dumps(my_json[0]).encode())
         elif len(array_param) == 2:
@@ -309,13 +309,6 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
             else:
                 self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
-
-            # find encontrar la respuesta
-
-            # if next es numero
-
-
-          
 
         # --
         return
