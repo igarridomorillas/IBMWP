@@ -1,15 +1,21 @@
 const { default: Card } = require("./Card");
 
 const CardPage = (props) => {
-  const card = Object.keys(props.cardData.cards).map((key) => {
-    return (
-      <Card
-        key={key}
-        cardDetail={props.cardData.cards[key]}
-        sendClick={props.sendClick}
-      />
-    );
-  });
+  let card;
+  if (props.cardData.cards === undefined) {
+    console.log(props.cardData);
+    return (card = props.cardData.name);
+  } else {
+    card = Object.keys(props.cardData.cards).map((key) => {
+      return (
+        <Card
+          key={key}
+          cardDetail={props.cardData.cards[key]}
+          sendClick={props.sendClick}
+        />
+      );
+    });
+  }
 
   return (
     <section className="card-page">
