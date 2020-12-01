@@ -317,14 +317,14 @@ class RequestHandler(BaseHTTPRequestHandler):
         if array_param == ['qu=0', 'ans=0']:
             self.wfile.write(json.dumps(my_json[0]).encode())
         elif len(array_param) == 2:
-            param_preg = array_param[0].split("=")
-            param_resp = array_param[1].split("=")
+            param_qu = array_param[0].split("=")
+            param_ans = array_param[1].split("=")
 
-            preg_id = int(param_preg[1])
-            resp_id = param_resp[1]
-            pregunta_recien_respondida = my_json[preg_id]
+            qu_id = int(param_qu[1])
+            ans_id = param_ans[1]
+            choses_qu = my_json[qu_id]
 
-            sel_ans = pregunta_recien_respondida["cards"][resp_id]
+            sel_ans = choses_qu["cards"][ans_id]
 
             if type(sel_ans["next"]) == int:
                 self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
