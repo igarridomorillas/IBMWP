@@ -7,8 +7,11 @@ import CardPage from "./Cards/CardPage";
 import { sendData } from "../services/fetch";
 
 const App = () => {
+  const [question, setQuestion] = useState(0);
+  const [answer, setAnswer] = useState(0);
+
   useEffect(() => {
-    sendData(1, 4).then((result) => {
+    sendData(question, answer).then((result) => {
       console.log(result);
     });
   });

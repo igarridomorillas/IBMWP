@@ -292,8 +292,10 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         parametros_str=parsed_path.query
         array_param = parametros_str.split("&")
-        #print(array_param)
-        if len(array_param) == 2:
+        print(array_param)
+        if array_param == ['qu=0', 'ans=0']:
+            self.wfile.write(json.dumps(my_json[0]).encode())
+        elif len(array_param) == 2:
             param_preg = array_param[0].split("=")
             param_resp = array_param[1].split("=")
 
@@ -303,8 +305,6 @@ class RequestHandler(BaseHTTPRequestHandler):
 
             sel_ans = pregunta_recien_respondida["cards"][resp_id]
 
-            next_item = sel_ans["next"]
-            
             if type(sel_ans["next"]) == int:
                 self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
             else:
