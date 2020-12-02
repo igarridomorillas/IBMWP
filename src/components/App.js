@@ -43,7 +43,6 @@ const App = () => {
 
   // Key History
   const handleHistory = (qu, ans) => {
-    console.log(qu, ans);
     setQuestion(qu);
     setAnswer(ans);
   };
