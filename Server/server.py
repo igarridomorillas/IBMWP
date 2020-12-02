@@ -10,17 +10,16 @@ import ssl
 my_json = [
   {
     "option" : "Inicio",
+    "choice" : 0,
     "cards" : {
       "1" : {
         "id" : 1,
-        "choice" : 0,
         "description" : "Con concha.", # Mollusca
         "image" : "",
         "next" : "mollusca"
       },
       "2" : {
         "id" : 2,
-        "choice" : 0,
         "description" : "Sin concha.",
         "image" : "",
         "next" : 1
@@ -29,17 +28,16 @@ my_json = [
   },
   {
     "option" : "Sin concha.",
+    "choice" : 1,
     "cards" : {
       "3" : {
         "id" : 3,
-        "choice" : 1,
         "description" : "Con patas.",
         "image" : "",
         "next" : 3
       },
       "4" : {
         "id" : 4,
-        "choice" : 1,
         "description" : "Sin patas.",
         "image" : "",
         "next" : 2
@@ -48,17 +46,16 @@ my_json = [
   },
    {
     "option" : "Sin patas",
+    "choice" : 2,
     "cards" : {
       "5" : {
         "id" : 5,
-        "choice" : 2,
         "description" : "Con colas y protuberancias.", # Diptera
         "image" : "",
         "next" : "diptera"
       },
       "6" : {
         "id" : 6,
-        "choice" : 2,
         "description" : "Forma de gusano, sin estas caracteristicas.", # Oligochaeta
         "image" : "",
         "next" : "oligochaeta"
@@ -67,24 +64,22 @@ my_json = [
   },
   {
     "option" : "Con patas.",
+    "choice" : 3,
     "cards" : {
       "7" : {
         "id" : 7,
-        "choice" : 3,
         "description" : "Seis patas.", 
         "image" : "",
         "next" : 4
       },
       "8" : {
         "id" : 8,
-        "choice" : 3,
         "description" : "Ocho patas.", # Arachnida
         "image" : "",
         "next" : "arachnida"
       },
       "9" : {
         "id" : 9,
-        "choice" : 3,
         "description" : "Diez o más patas.", # Crustacea
         "image" : "",
         "next" : "crustacea"
@@ -94,16 +89,15 @@ my_json = [
   {
     "option" : "Seis patas.",
     "cards" : {
+    "choice" : 4,
       "10" : {
         "id" : 10,
-        "choice" : 4,
         "description" : "Constructores de casas. Con dos ganchos terminales.", # Trichoptera
         "image" : "",
         "next" : "trichoptera"
       },
       "11" : {
         "id" : 11,
-        "choice" : 4,
         "description" : "Sin estas características.",
         "image" : "",
         "next" : 5
@@ -112,17 +106,16 @@ my_json = [
   },
   {
     "option" : "Sin estas características.",
+    "choice" : 5,
     "cards" : {
       "12" : {
         "id" : 12,
-        "choice" : 5,
         "description" : "Colas y antenas largas.",
         "image" : "",
         "next" : 6
       },
       "13" : {
         "id" : 13,
-        "choice" : 5,
         "description" : "Colas y antenas cortas.",
         "image" : "",
         "next" : 7
@@ -131,17 +124,16 @@ my_json = [
   },
   {
     "option" : "Colas y antenas largas.",
+    "choice" : 6,
     "cards" : {
       "14" : {
         "id" : 14,
-        "choice" : 6,
         "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales.", # Ephemeroptera
         "image" : "",
         "next" : "ephemeroptera"
       },
       "15" : {
         "id" : 15,
-        "choice" : 6,
         "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales.", # Plecoptera
         "image" : "",
         "next" : "plecoptera"
@@ -150,24 +142,22 @@ my_json = [
   },
   {
     "option" : "Colas y antenas cortas.",
+    "choice" : 7,
     "cards" : {
       "16" : {
         "id" : 16,
-        "choice" : 7,
         "description" : "Mandibulas bien desarrolladas.",
        "image" : "",
         "next" : 8
       },
       "17" : {
         "id" : 17,
-        "choice" : 7,
         "description" : "Pseudópodos abdominales.", # Lepidoptera
         "image" : "",
         "next" : "lepidoptera"
       },
       "18" : {
         "id" : 18,
-        "choice" : 7,
         "description" : "Piezas bucales en estilete.", # Hemiptera
         "image" : "",
         "next" : "hemiptera"
@@ -176,24 +166,22 @@ my_json = [
   },
   {
     "option" : "Mandíbulas bien desarrolladas.",
+    "choice" : 8,
     "cards" : {
       "19":{
         "id" : 19,
-        "choice" : 8,
         "description" : "Prolongaciones laterales. Dos uñas tarsales.", # Megaloptera
         "image" : "",
         "next" : "megaloptera"
       },
       "20":{
         "id" : 20,
-        "choice" : 8,
         "description" : "Mandíbulas prolongables.", # Odonata
         "image" : "",
         "next" : "odonata"
       },
       "21":{
         "id" : 21,
-        "choice" : 8,
         "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña.", # Coleoptera
         "image" : "",
         "next" : "coleoptera"
@@ -314,22 +302,25 @@ class RequestHandler(BaseHTTPRequestHandler):
         parametros_str=parsed_path.query
         array_param = parametros_str.split("&")
         
-        if array_param == ['qu=0', 'ans=0']:
-            self.wfile.write(json.dumps(my_json[0]).encode())
+        if len(array_param) == 1:
+          print("browser")
         elif len(array_param) == 2:
-            param_qu = array_param[0].split("=")
-            param_ans = array_param[1].split("=")
-
-            qu_id = int(param_qu[1])
-            ans_id = param_ans[1]
-            choses_qu = my_json[qu_id]
-
-            sel_ans = choses_qu["cards"][ans_id]
-
-            if type(sel_ans["next"]) == int:
-                self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
+            if array_param == ['qu=0', 'ans=0']:
+                self.wfile.write(json.dumps(my_json[0]).encode())
             else:
-                self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
+                param_qu = array_param[0].split("=")
+                param_ans = array_param[1].split("=")
+
+                qu_id = int(param_qu[1])
+                ans_id = param_ans[1]
+                choses_qu = my_json[qu_id]
+
+                sel_ans = choses_qu["cards"][ans_id]
+
+                if type(sel_ans["next"]) == int:
+                    self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
+                else:
+                    self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
 
         # --
         return

@@ -1,6 +1,6 @@
 const Card = (props) => {
   const handleClick = (ev) => {
-    props.sendClick(props.cardDetail.choice, ev.currentTarget.id);
+    props.sendClick(ev.currentTarget.id);
   };
 
   return (

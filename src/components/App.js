@@ -26,10 +26,9 @@ const App = () => {
     });
   }, [answer]);
 
-  const handleClick = (next, id) => {
-    const cardId = parseInt(id);
+  const handleClick = (id) => {
     setAnswer(id);
-    setQuestion(next);
+    setQuestion(cardData.choice);
   };
 
   return (
