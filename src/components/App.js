@@ -7,6 +7,7 @@ import CardPage from "./Cards/CardPage";
 import { sendData } from "../services/fetch";
 
 const App = () => {
+  // State
   const [question, setQuestion] = useState(0);
   const [answer, setAnswer] = useState(0);
   const [cardData, setCardData] = useState({
@@ -18,6 +19,7 @@ const App = () => {
   });
   const [load, setLoad] = useState(true);
 
+  // Startup
   useEffect(() => {
     setLoad(true);
     sendData(question, answer).then((result) => {
@@ -26,9 +28,17 @@ const App = () => {
     });
   }, [answer]);
 
+  // Key Card choice
   const handleClick = (id) => {
     setAnswer(id);
     setQuestion(cardData.choice);
+  };
+
+  // Key Reset
+  const handleReset = () => {
+    console.log("hola");
+    setQuestion(0);
+    setAnswer(0);
   };
 
   return (
@@ -38,7 +48,12 @@ const App = () => {
         {load === true ? (
           "Waiting..."
         ) : (
-          <CardPage cardData={cardData} load={load} sendClick={handleClick} />
+          <CardPage
+            cardData={cardData}
+            load={load}
+            sendClick={handleClick}
+            sendReset={handleReset}
+          />
         )}
 
         {/* <Form /> */}
