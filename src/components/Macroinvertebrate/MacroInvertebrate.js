@@ -3,7 +3,7 @@ const Macroinvertebrate = (props) => {
     props.sendReset();
   };
   return (
-    <>
+    <section>
       <button onClick={handleReset}>Reiniciar</button>
       <article id={props.cardData.id}>
         <h2>{props.cardData.name}</h2>
@@ -11,7 +11,7 @@ const Macroinvertebrate = (props) => {
         <p>Índice IBMWP: {props.cardData.index}</p>
         <p>Tolerancia: {props.cardData.tolerance}</p>
       </article>
-    </>
+    </section>
   );
 };
 

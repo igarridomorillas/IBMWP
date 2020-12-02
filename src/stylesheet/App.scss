@@ -1,3 +1,14 @@
+* {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main {
+  display: flex;
+}
 .card-page {
   &__cards {
     display: flex;
@@ -9,4 +20,8 @@
   padding: 10px 30px;
   cursor: pointer;
   text-align: center;
+  margin: 10px;
+}
+.history {
+  width: 200px;
 }

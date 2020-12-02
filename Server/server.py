@@ -88,8 +88,8 @@ my_json = [
   },
   {
     "option" : "Seis patas.",
-    "cards" : {
     "choice" : 4,
+    "cards" : {
       "10" : {
         "id" : 10,
         "description" : "Constructores de casas. Con dos ganchos terminales.", # Trichoptera
