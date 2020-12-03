@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import json
 import ssl
 
-
+# localhost:4443
 # OPTION CARDS
 
 my_json = [

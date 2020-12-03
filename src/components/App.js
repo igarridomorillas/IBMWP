@@ -1,11 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import { sendData } from "../services/fetch";
 import "../stylesheet/App.scss";
 import Header from "./Header/Header";
-// import Form from "./Form/Form";
+import Menu from "./Menu/Menu";
+import Form from "./Form/Form";
 import CardPage from "./Cards/CardPage";
-import { sendData } from "../services/fetch";
+
 import KeyHistory from "./KeyHistory/KeyHistory";
+import Home from "./Home/Home";
 
 const App = () => {
   // State
@@ -50,23 +54,32 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="main">
-        {load === true ? (
-          "Waiting..."
-        ) : (
-          <>
-            <KeyHistory history={history} sendHistory={handleHistory} />
-            <CardPage
-              cardData={cardData}
-              load={load}
-              sendClick={handleClick}
-              sendReset={handleReset}
-            />
-          </>
-        )}
-
-        {/* <Form /> */}
-      </main>
+      <Menu />
+      <Switch>
+        <main className="main">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/key">
+            {load === true ? (
+              "Waiting..."
+            ) : (
+              <>
+                <KeyHistory history={history} sendHistory={handleHistory} />
+                <CardPage
+                  cardData={cardData}
+                  load={load}
+                  sendClick={handleClick}
+                  sendReset={handleReset}
+                />
+              </>
+            )}
+          </Route>
+          <Route path="/form">
+            <Form />
+          </Route>
+        </main>
+      </Switch>
     </>
   );
 };

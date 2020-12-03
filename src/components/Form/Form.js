@@ -1,7 +1,7 @@
 const Form = (props) => {
   return (
     <>
-      <form></form>
+      <form>Hola mundo</form>
     </>
   );
 };
