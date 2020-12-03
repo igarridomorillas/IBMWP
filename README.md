@@ -12,7 +12,15 @@ I have created a **python server**  for this purpose. The server only works in *
 
 Selecting a card triggers a fetch on the server, which responds with an object with the next cards or the result macroinvertebrate.
 
-Extra features:
+This feature includes:
   1. **Key history:** when you select a card, it is stored on a list that you can click to go back to your previous choices.
   2. **Reset button:** for restarting your search at any point.
   3. **Loading** while waiting for server response.
+
+## Future features:
+
+Currently I'm working on a form to enter the macroinvertebrates found and calculate the index.
+
+Next I'd like to introduce calculations for different samples, and statistic calculations for them.
+
+Future features I'd like to implement would be geolocation for the samples, being able to save your data on a document, and graphics for the calculations.
