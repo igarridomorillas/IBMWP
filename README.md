@@ -1,3 +1,5 @@
+![Macroinvertebrates](./src/images/Macroinvertebrates.png)
+
 # IBMWP
 
 This is a **personal project** I'm currently working on. On this project I'm trying to integrate **Python** with **React** and **SCSS**.
@@ -25,5 +27,3 @@ Currently I'm working on a form to enter the macroinvertebrates found and calcul
 Next I'd like to introduce calculations for different samples, and statistic for them.
 
 Future features I'd like to implement in the future would be geolocation for the samples, being able to create a document with your data, and graphics for the statistic calculations.
-
-![Macroinvertebrates](./src/images/Macroinvertebrates.png)
