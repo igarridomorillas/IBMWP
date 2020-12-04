@@ -1,6 +1,6 @@
-![Macroinvertebrates](./src/images/Macroinvertebrates.png)
-
 # IBMWP
+
+![Macroinvertebrates](./src/images/Macroinvertebrates.png)
 
 This is a **personal project** I'm currently working on. On this project I'm trying to integrate **Python** with **React** and **SCSS**.
 
