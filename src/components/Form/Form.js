@@ -1,13 +1,22 @@
 import FormInput from "./FormInput";
 
 const Form = (props) => {
-  const input = Object.keys(props.formData).map((m) => {
+  let formData = props.formData;
+
+  const sortedData = Object.keys(formData).sort((a, b) => {
+    return formData[a] - formData[b];
+  });
+
+  sortedData.map((n) => formData[n]);
+  console.log(formData);
+
+  const input = Object.keys(formData).map((m) => {
     return (
       <FormInput
         name={m}
-        index={props.formData[m].index}
-        id={props.formData[m].id}
-        key={props.formData[m].id}
+        index={formData[m].index}
+        id={formData[m].id}
+        key={formData[m].id}
         sendInput={props.sendInput}
       />
     );
@@ -27,6 +36,7 @@ const Form = (props) => {
         <input type="submit" value="Calcular" onClick={handleSubmit} />
       </form>
       <p>Índice: {props.indexSum}</p>
+      <p>Calidad: {props.quality}</p>
     </>
   );
 };

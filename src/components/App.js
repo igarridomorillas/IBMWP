@@ -22,6 +22,7 @@ const App = () => {
   const [formData, setFormData] = useState([]);
   const [formValues, setFormValues] = useState([]);
   const [indexSum, setIndexSum] = useState();
+  const [quality, setQuality] = useState();
 
   // Startup
   useEffect(() => {
@@ -84,6 +85,20 @@ const App = () => {
       sum = formValues.reduce((acc, index) => acc + index);
     }
     setIndexSum(sum);
+
+    if (sum > 100) {
+      setQuality("Muy buena");
+    } else if (sum <= 100 && sum > 60) {
+      setQuality("Aceptable");
+    } else if (sum <= 60 && sum > 35) {
+      setQuality("Dudosa");
+    } else if (sum <= 35 && sum > 15) {
+      setQuality("Crítica");
+    } else if (sum <= 15) {
+      setQuality("Muy crítica");
+    } else {
+      setQuality("Error");
+    }
   };
 
   return (
@@ -116,6 +131,7 @@ const App = () => {
               sendInput={handleInput}
               sendSubmit={handleSubmit}
               indexSum={indexSum}
+              quality={quality}
             />
           </Route>
         </Switch>
