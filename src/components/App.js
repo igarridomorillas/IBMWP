@@ -7,9 +7,8 @@ import { sendFormData } from "../services/formFetch";
 import "../stylesheet/App.scss";
 import Header from "./Header/Header";
 import Menu from "./Menu/Menu";
+import Key from "./Key/Key";
 import Form from "./Form/Form";
-import CardPage from "./Cards/CardPage";
-import KeyHistory from "./KeyHistory/KeyHistory";
 import Home from "./Home/Home";
 
 const App = () => {
@@ -42,7 +41,7 @@ const App = () => {
   }, []);
 
   // Key Card choice
-  const handleClick = (id, description) => {
+  const handleKeyClick = (id, description) => {
     setAnswer(id);
     setQuestion(cardData.choice);
     setHistory([
@@ -52,20 +51,20 @@ const App = () => {
   };
 
   // Key Reset
-  const handleReset = () => {
+  const handleKeyReset = () => {
     setQuestion(0);
     setAnswer(0);
     setHistory([]);
   };
 
   // Key History
-  const handleHistory = (qu, ans) => {
+  const handlekeyHistory = (qu, ans) => {
     setQuestion(qu);
     setAnswer(ans);
   };
 
-  // Index Calculation
-  const handleInput = (inputName, inputValue) => {
+  // Form Index Calculation
+  const handleFormInput = (inputName, inputValue) => {
     console.log(inputName);
     let inputCalc;
     if (isNaN(parseInt(inputValue))) {
@@ -76,7 +75,7 @@ const App = () => {
     setFormValues([...formValues, inputCalc]);
   };
 
-  const handleSubmit = () => {
+  const handleFormSubmit = () => {
     let sum;
     console.log(formValues);
     if (formValues.length === 0) {
@@ -101,41 +100,35 @@ const App = () => {
     }
   };
 
+  // Return
   return (
     <>
       <Header />
       <Menu />
-      <main className="main">
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/key">
-            {load === true ? (
-              "Waiting..."
-            ) : (
-              <>
-                <KeyHistory history={history} sendHistory={handleHistory} />
-                <CardPage
-                  cardData={cardData}
-                  load={load}
-                  sendClick={handleClick}
-                  sendReset={handleReset}
-                />
-              </>
-            )}
-          </Route>
-          <Route path="/form">
-            <Form
-              formData={formData}
-              sendInput={handleInput}
-              sendSubmit={handleSubmit}
-              indexSum={indexSum}
-              quality={quality}
-            />
-          </Route>
-        </Switch>
-      </main>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/key">
+          <Key
+            history={history}
+            cardData={cardData}
+            load={load}
+            sendHistory={handlekeyHistory}
+            sendClick={handleKeyClick}
+            sendReset={handleKeyReset}
+          />
+        </Route>
+        <Route path="/form">
+          <Form
+            formData={formData}
+            indexSum={indexSum}
+            quality={quality}
+            sendSubmit={handleFormSubmit}
+            sendInput={handleFormInput}
+          />
+        </Route>
+      </Switch>
     </>
   );
 };

@@ -29,6 +29,7 @@ const CardPage = (props) => {
     });
   }
 
+  // Return
   return (
     <section className="card-page">
       <button onClick={handleReset}>Reiniciar</button>

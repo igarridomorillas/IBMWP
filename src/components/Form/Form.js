@@ -3,6 +3,7 @@ import FormInput from "./FormInput";
 const Form = (props) => {
   let formData = props.formData;
 
+  // Sort
   const sortedData = Object.keys(formData).sort((a, b) => {
     return formData[a] - formData[b];
   });
@@ -10,6 +11,7 @@ const Form = (props) => {
   sortedData.map((n) => formData[n]);
   console.log(formData);
 
+  // Map
   const input = Object.keys(formData).map((m) => {
     return (
       <FormInput
