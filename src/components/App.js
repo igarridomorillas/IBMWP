@@ -20,6 +20,8 @@ const App = () => {
   const [load, setLoad] = useState(true);
   const [history, setHistory] = useState([]);
   const [formData, setFormData] = useState([]);
+  const [formValues, setFormValues] = useState([]);
+  const [indexSum, setIndexSum] = useState();
 
   // Startup
   useEffect(() => {
@@ -61,12 +63,35 @@ const App = () => {
     setAnswer(ans);
   };
 
+  // Index Calculation
+  const handleInput = (inputName, inputValue) => {
+    console.log(inputName);
+    let inputCalc;
+    if (isNaN(parseInt(inputValue))) {
+      inputCalc = 0;
+    } else {
+      inputCalc = formData[inputName].index * parseInt(inputValue);
+    }
+    setFormValues([...formValues, inputCalc]);
+  };
+
+  const handleSubmit = () => {
+    let sum;
+    console.log(formValues);
+    if (formValues.length === 0) {
+      sum = "Error";
+    } else {
+      sum = formValues.reduce((acc, index) => acc + index);
+    }
+    setIndexSum(sum);
+  };
+
   return (
     <>
       <Header />
       <Menu />
-      <Switch>
-        <main className="main">
+      <main className="main">
+        <Switch>
           <Route exact path="/">
             <Home />
           </Route>
@@ -86,10 +111,15 @@ const App = () => {
             )}
           </Route>
           <Route path="/form">
-            <Form formData={formData} />
+            <Form
+              formData={formData}
+              sendInput={handleInput}
+              sendSubmit={handleSubmit}
+              indexSum={indexSum}
+            />
           </Route>
-        </main>
-      </Switch>
+        </Switch>
+      </main>
     </>
   );
 };
