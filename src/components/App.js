@@ -2,12 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import { sendData } from "../services/fetch";
+import { sendFormData } from "../services/formFetch";
+
 import "../stylesheet/App.scss";
 import Header from "./Header/Header";
 import Menu from "./Menu/Menu";
 import Form from "./Form/Form";
 import CardPage from "./Cards/CardPage";
-
 import KeyHistory from "./KeyHistory/KeyHistory";
 import Home from "./Home/Home";
 
@@ -18,6 +19,7 @@ const App = () => {
   const [cardData, setCardData] = useState({});
   const [load, setLoad] = useState(true);
   const [history, setHistory] = useState([]);
+  const [formData, setFormData] = useState([]);
 
   // Startup
   useEffect(() => {
@@ -27,6 +29,14 @@ const App = () => {
       setLoad(false);
     });
   }, [answer]);
+
+  useEffect(() => {
+    setLoad(true);
+    sendFormData().then((result) => {
+      setFormData(result);
+      setLoad(false);
+    });
+  }, []);
 
   // Key Card choice
   const handleClick = (id, description) => {
@@ -76,7 +86,7 @@ const App = () => {
             )}
           </Route>
           <Route path="/form">
-            <Form />
+            <Form formData={formData} />
           </Route>
         </main>
       </Switch>

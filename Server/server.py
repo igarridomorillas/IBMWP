@@ -303,7 +303,11 @@ class RequestHandler(BaseHTTPRequestHandler):
         array_param = parametros_str.split("&")
         
         if len(array_param) == 1:
-          print("browser")
+            print(array_param)
+            if array_param == ['macroinvertebrates']:
+                self.wfile.write(json.dumps(macroinvertebrates).encode())
+            else:
+                print("else")
         elif len(array_param) == 2:
             if array_param == ['qu=0', 'ans=0']:
                 self.wfile.write(json.dumps(my_json[0]).encode())
