@@ -1,24 +1,29 @@
 import FormInput from "./FormInput";
 
 const Form = (props) => {
-  let formData = props.formData;
+  const formData = props.formData;
 
   // Sort
-  const sortedData = Object.keys(formData).sort((a, b) => {
-    return formData[a] - formData[b];
+  formData.sort((a, b) => {
+    const macroInvA = a.name.toUpperCase();
+    const macroInvB = b.name.toUpperCase();
+    if (macroInvA < macroInvB) {
+      return -1;
+    }
+    if (macroInvA > macroInvB) {
+      return 1;
+    }
+    return 0;
   });
 
-  sortedData.map((n) => formData[n]);
-  console.log(formData);
-
   // Map
-  const input = Object.keys(formData).map((m) => {
+  const input = formData.map((m) => {
     return (
       <FormInput
-        name={m}
-        index={formData[m].index}
-        id={formData[m].id}
-        key={formData[m].id}
+        name={m.name}
+        index={m.index}
+        id={m.id}
+        key={m.id}
         sendInput={props.sendInput}
       />
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { sendData } from "../services/fetch";
+import { sendKeyData } from "../services/keyFetch";
 import { sendFormData } from "../services/formFetch";
 
 import "../stylesheet/App.scss";
@@ -26,7 +26,7 @@ const App = () => {
   // Startup
   useEffect(() => {
     setLoad(true);
-    sendData(question, answer).then((result) => {
+    sendKeyData(question, answer).then((result) => {
       setCardData(result);
       setLoad(false);
     });
@@ -65,23 +65,43 @@ const App = () => {
 
   // Form Index Calculation
   const handleFormInput = (inputName, inputValue) => {
-    console.log(inputName);
-    let inputCalc;
-    if (isNaN(parseInt(inputValue))) {
-      inputCalc = 0;
-    } else {
-      inputCalc = formData[inputName].index * parseInt(inputValue);
+    const macroInvModified = formData.find((m) => {
+      return m.name === inputName;
+    });
+
+    if (macroInvModified) {
+      const result = macroInvModified.index * inputValue;
+      console.log(result);
+      const foundValue = formValues.find((m) => {
+        console.log(m.name, inputName);
+        return m.name === inputName;
+      });
+
+      if (foundValue) {
+        console.log("if");
+        console.log(foundValue);
+        foundValue.indexResult = result;
+        console.log(foundValue);
+      } else {
+        console.log("else");
+        setFormValues([
+          ...formValues,
+          { name: inputName, indexResult: result },
+        ]);
+      }
     }
-    setFormValues([...formValues, inputCalc]);
   };
+  console.log(formValues);
 
   const handleFormSubmit = () => {
     let sum;
-    console.log(formValues);
+    // console.log(formValues);
     if (formValues.length === 0) {
       sum = "Error";
     } else {
-      sum = formValues.reduce((acc, index) => acc + index);
+      sum = formValues.reduce((acc, index) => {
+        return acc.indexResult + parseInt(index.indexResult);
+      });
     }
     setIndexSum(sum);
 
