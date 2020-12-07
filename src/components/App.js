@@ -71,19 +71,15 @@ const App = () => {
 
     if (macroInvModified) {
       const result = macroInvModified.index * inputValue;
-      console.log(result);
       const foundValue = formValues.find((m) => {
-        console.log(m.name, inputName);
         return m.name === inputName;
       });
 
       if (foundValue) {
-        console.log("if");
-        console.log(foundValue);
         foundValue.indexResult = result;
-        console.log(foundValue);
+        formValues.indexResult = result;
+        setFormValues([...formValues]);
       } else {
-        console.log("else");
         setFormValues([
           ...formValues,
           { name: inputName, indexResult: result },
@@ -91,17 +87,16 @@ const App = () => {
       }
     }
   };
-  console.log(formValues);
 
   const handleFormSubmit = () => {
     let sum;
-    // console.log(formValues);
+    console.log(formValues);
     if (formValues.length === 0) {
       sum = "Error";
     } else {
       sum = formValues.reduce((acc, index) => {
-        return acc.indexResult + parseInt(index.indexResult);
-      });
+        return acc + parseInt(index.indexResult);
+      }, 0);
     }
     setIndexSum(sum);
 
