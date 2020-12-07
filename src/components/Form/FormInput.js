@@ -4,15 +4,16 @@ const FormInput = (props) => {
   };
 
   return (
-    <div class="col-auto">
-      <label className="col form-label" htmlFor={props.id}>
+    <div class="col-3 my-3">
+      <label className="form-label text-capitalize" htmlFor={props.id}>
         {props.name}
       </label>
       <input
-        className="col form-control"
+        className="form-control"
         type="number"
         name={props.name}
         id={props.id}
+        placeholder="..."
         onChange={handleInput}
       />
     </div>

@@ -3,11 +3,6 @@ import Macroinvertebrate from "../Macroinvertebrate/MacroInvertebrate";
 const { default: Card } = require("./Card");
 
 const CardPage = (props) => {
-  // Reset button
-  const handleReset = () => {
-    props.sendReset();
-  };
-
   // Card Map
   let card;
   if (props.cardData.cards === undefined) {
@@ -31,10 +26,9 @@ const CardPage = (props) => {
 
   // Return
   return (
-    <section className="card-page">
-      <button onClick={handleReset}>Reiniciar</button>
-      <h2 className="card-page__title">{props.cardData.option}</h2>
-      <ul className="card-page__cards">{card}</ul>
+    <section className="col-10 text-center">
+      <h2 className="py-4 fs-4">{props.cardData.option}</h2>
+      <ul className="row justify-content-center">{card}</ul>
     </section>
   );
 };

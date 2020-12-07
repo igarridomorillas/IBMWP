@@ -14,31 +14,31 @@ my_json = [
     "cards" : {
       "1" : {
         "id" : 1,
-        "description" : "Con concha.", # Mollusca
+        "description" : "Con concha", # Mollusca
         "image" : "",
         "next" : "mollusca"
       },
       "2" : {
         "id" : 2,
-        "description" : "Sin concha.",
+        "description" : "Sin concha",
         "image" : "",
         "next" : 1
       }
     }
   },
   {
-    "option" : "Sin concha.",
+    "option" : "Sin concha",
     "choice" : 1,
     "cards" : {
       "3" : {
         "id" : 3,
-        "description" : "Con patas.",
+        "description" : "Con patas",
         "image" : "",
         "next" : 3
       },
       "4" : {
         "id" : 4,
-        "description" : "Sin patas.",
+        "description" : "Sin patas",
         "image" : "",
         "next" : 2
       }
@@ -50,139 +50,139 @@ my_json = [
     "cards" : {
       "5" : {
         "id" : 5,
-        "description" : "Con colas y protuberancias.", # Diptera
+        "description" : "Con colas y protuberancias", # Diptera
         "image" : "",
         "next" : "diptera"
       },
       "6" : {
         "id" : 6,
-        "description" : "Forma de gusano, sin estas caracteristicas.", # Oligochaeta
+        "description" : "Forma de gusano, sin estas caracteristicas", # Oligochaeta
         "image" : "",
         "next" : "oligochaeta"
       }
     }
   },
   {
-    "option" : "Con patas.",
+    "option" : "Con patas",
     "choice" : 3,
     "cards" : {
       "7" : {
         "id" : 7,
-        "description" : "Seis patas.", 
+        "description" : "Seis patas", 
         "image" : "",
         "next" : 4
       },
       "8" : {
         "id" : 8,
-        "description" : "Ocho patas.", # Arachnida
+        "description" : "Ocho patas", # Arachnida
         "image" : "",
         "next" : "arachnida"
       },
       "9" : {
         "id" : 9,
-        "description" : "Diez o más patas.", # Crustacea
+        "description" : "Diez o más patas", # Crustacea
         "image" : "",
         "next" : "crustacea"
       }
     }
   },
   {
-    "option" : "Seis patas.",
+    "option" : "Seis patas",
     "choice" : 4,
     "cards" : {
       "10" : {
         "id" : 10,
-        "description" : "Constructores de casas. Con dos ganchos terminales.", # Trichoptera
+        "description" : "Constructores de casas. Con dos ganchos terminales", # Trichoptera
         "image" : "",
         "next" : "trichoptera"
       },
       "11" : {
         "id" : 11,
-        "description" : "Sin estas características.",
+        "description" : "Sin estas características",
         "image" : "",
         "next" : 5
       }
     }
   },
   {
-    "option" : "Sin estas características.",
+    "option" : "Sin estas características",
     "choice" : 5,
     "cards" : {
       "12" : {
         "id" : 12,
-        "description" : "Colas y antenas largas.",
+        "description" : "Colas y antenas largas",
         "image" : "",
         "next" : 6
       },
       "13" : {
         "id" : 13,
-        "description" : "Colas y antenas cortas.",
+        "description" : "Colas y antenas cortas",
         "image" : "",
         "next" : 7
       }
     }
   },
   {
-    "option" : "Colas y antenas largas.",
+    "option" : "Colas y antenas largas",
     "choice" : 6,
     "cards" : {
       "14" : {
         "id" : 14,
-        "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales.", # Ephemeroptera
+        "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales", # Ephemeroptera
         "image" : "",
         "next" : "ephemeroptera"
       },
       "15" : {
         "id" : 15,
-        "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales.", # Plecoptera
+        "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales", # Plecoptera
         "image" : "",
         "next" : "plecoptera"
       }
     }
   },
   {
-    "option" : "Colas y antenas cortas.",
+    "option" : "Colas y antenas cortas",
     "choice" : 7,
     "cards" : {
       "16" : {
         "id" : 16,
-        "description" : "Mandibulas bien desarrolladas.",
+        "description" : "Mandibulas bien desarrolladas",
        "image" : "",
         "next" : 8
       },
       "17" : {
         "id" : 17,
-        "description" : "Pseudópodos abdominales.", # Lepidoptera
+        "description" : "Pseudópodos abdominales", # Lepidoptera
         "image" : "",
         "next" : "lepidoptera"
       },
       "18" : {
         "id" : 18,
-        "description" : "Piezas bucales en estilete.", # Hemiptera
+        "description" : "Piezas bucales en estilete", # Hemiptera
         "image" : "",
         "next" : "hemiptera"
       }
     }
   },
   {
-    "option" : "Mandíbulas bien desarrolladas.",
+    "option" : "Mandíbulas bien desarrolladas",
     "choice" : 8,
     "cards" : {
       "19":{
         "id" : 19,
-        "description" : "Prolongaciones laterales. Dos uñas tarsales.", # Megaloptera
+        "description" : "Prolongaciones laterales. Dos uñas tarsales", # Megaloptera
         "image" : "",
         "next" : "megaloptera"
       },
       "20":{
         "id" : 20,
-        "description" : "Mandíbulas prolongables.", # Odonata
+        "description" : "Mandíbulas prolongables", # Odonata
         "image" : "",
         "next" : "odonata"
       },
       "21":{
         "id" : 21,
-        "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña.", # Coleoptera
+        "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña", # Coleoptera
         "image" : "",
         "next" : "coleoptera"
       }

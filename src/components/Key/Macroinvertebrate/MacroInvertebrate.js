@@ -1,12 +1,8 @@
 const Macroinvertebrate = (props) => {
-  const handleReset = () => {
-    props.sendReset();
-  };
   return (
-    <section>
-      <button onClick={handleReset}>Reiniciar</button>
+    <section className="col-10 mt-4">
       <article id={props.cardData.id}>
-        <h2>{props.cardData.name}</h2>
+        <h2 className="text-capitalize">{props.cardData.name}</h2>
         <img
           src="https://via.placeholder.com/210x295/808080/ffffff/?text=Bicho"
           alt=""

@@ -38,8 +38,9 @@ const Form = (props) => {
   // Return
   return (
     <section className="container">
-      <form className="row g-2">{input}</form>
-      <button className="btn btn-dark btn-sm my-3" onClick={handleSubmit}>
+      <h2 className="fs-3 my-4">Cálculo Índice IBMWP</h2>
+      <form className="row g-2 mt-3">{input}</form>
+      <button className="btn btn-dark btn-lg my-4 px-5" onClick={handleSubmit}>
         Calcular
       </button>
       <p>Índice: {props.indexSum}</p>
