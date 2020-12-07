@@ -26,4 +26,4 @@ Currently I'm working on a form to enter the macroinvertebrates found and calcul
 
 Next I'd like to introduce calculations for different samples, and statistic for them.
 
-Future features I'd like to implement in the future would be geolocation for the samples, being able to create a document with your data, and graphics for the statistic calculations.
+Future features I'd like to implement would be geolocation for the samples, being able to create a document with your data, and graphics for the statistic calculations.
