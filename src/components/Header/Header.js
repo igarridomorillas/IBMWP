@@ -1,7 +1,10 @@
+import Menu from "./Menu/Menu";
+
 const Header = (props) => {
   return (
-    <header className="header">
+    <header className="container">
       <h1 className="header__title">IBMWP</h1>
+      <Menu />
     </header>
   );
 };

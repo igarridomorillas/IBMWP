@@ -6,7 +6,6 @@ import { sendFormData } from "../services/formFetch";
 
 import "../stylesheet/App.scss";
 import Header from "./Header/Header";
-import Menu from "./Menu/Menu";
 import Key from "./Key/Key";
 import Form from "./Form/Form";
 import Home from "./Home/Home";
@@ -119,31 +118,32 @@ const App = () => {
   return (
     <>
       <Header />
-      <Menu />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/key">
-          <Key
-            history={history}
-            cardData={cardData}
-            load={load}
-            sendHistory={handlekeyHistory}
-            sendClick={handleKeyClick}
-            sendReset={handleKeyReset}
-          />
-        </Route>
-        <Route path="/form">
-          <Form
-            formData={formData}
-            indexSum={indexSum}
-            quality={quality}
-            sendSubmit={handleFormSubmit}
-            sendInput={handleFormInput}
-          />
-        </Route>
-      </Switch>
+      <main className="container">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/key">
+            <Key
+              history={history}
+              cardData={cardData}
+              load={load}
+              sendHistory={handlekeyHistory}
+              sendClick={handleKeyClick}
+              sendReset={handleKeyReset}
+            />
+          </Route>
+          <Route path="/form">
+            <Form
+              formData={formData}
+              indexSum={indexSum}
+              quality={quality}
+              sendSubmit={handleFormSubmit}
+              sendInput={handleFormInput}
+            />
+          </Route>
+        </Switch>
+      </main>
     </>
   );
 };

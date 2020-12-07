@@ -37,14 +37,14 @@ const Form = (props) => {
 
   // Return
   return (
-    <>
+    <section>
       <form>
         {input}
         <input type="submit" value="Calcular" onClick={handleSubmit} />
       </form>
       <p>Índice: {props.indexSum}</p>
       <p>Calidad: {props.quality}</p>
-    </>
+    </section>
   );
 };
 

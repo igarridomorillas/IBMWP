@@ -18,7 +18,9 @@ const KeyHistory = (props) => {
   return (
     <section className="history">
       <h3>History:</h3>
-      <ul>{history}</ul>
+      <nav>
+        <ul>{history}</ul>
+      </nav>
     </section>
   );
 };

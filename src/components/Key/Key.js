@@ -3,7 +3,7 @@ import CardPage from "./Cards/CardPage";
 
 const Key = (props) => {
   return (
-    <main className="main">
+    <section className="main">
       {props.load === true ? (
         "Waiting..."
       ) : (
@@ -17,7 +17,7 @@ const Key = (props) => {
           />
         </>
       )}
-    </main>
+    </section>
   );
 };
 
