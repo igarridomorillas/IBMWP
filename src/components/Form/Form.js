@@ -37,11 +37,11 @@ const Form = (props) => {
 
   // Return
   return (
-    <section>
-      <form>
-        {input}
-        <input type="submit" value="Calcular" onClick={handleSubmit} />
-      </form>
+    <section className="container">
+      <form className="row g-2">{input}</form>
+      <button className="btn btn-dark btn-sm my-3" onClick={handleSubmit}>
+        Calcular
+      </button>
       <p>Índice: {props.indexSum}</p>
       <p>Calidad: {props.quality}</p>
     </section>

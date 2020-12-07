@@ -3,7 +3,9 @@ import Menu from "./Menu/Menu";
 const Header = (props) => {
   return (
     <header className="container">
-      <h1 className="header__title">IBMWP</h1>
+      <h1 className="text-center bg-success bg-gradient p-3 text-white my-2 text-uppercase fs-2">
+        IBMWP
+      </h1>
       <Menu />
     </header>
   );
