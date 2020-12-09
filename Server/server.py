@@ -4,39 +4,41 @@ from urllib.parse import urlparse
 import json
 import ssl
 
-
+# localhost:4443
 # OPTION CARDS
 
 my_json = [
   {
     "option" : "Inicio",
+    "choice" : 0,
     "cards" : {
       "1" : {
         "id" : 1,
-        "description" : "Con concha.", # Mollusca
+        "description" : "Con concha", # Mollusca
         "image" : "",
         "next" : "mollusca"
       },
       "2" : {
         "id" : 2,
-        "description" : "Sin concha.",
+        "description" : "Sin concha",
         "image" : "",
         "next" : 1
       }
     }
   },
   {
-    "option" : "Sin concha.",
+    "option" : "Sin concha",
+    "choice" : 1,
     "cards" : {
       "3" : {
         "id" : 3,
-        "description" : "Con patas.",
+        "description" : "Con patas",
         "image" : "",
         "next" : 3
       },
       "4" : {
         "id" : 4,
-        "description" : "Sin patas.",
+        "description" : "Sin patas",
         "image" : "",
         "next" : 2
       }
@@ -44,136 +46,143 @@ my_json = [
   },
    {
     "option" : "Sin patas",
+    "choice" : 2,
     "cards" : {
       "5" : {
         "id" : 5,
-        "description" : "Con colas y protuberancias.", # Diptera
+        "description" : "Con colas y protuberancias", # Diptera
         "image" : "",
         "next" : "diptera"
       },
       "6" : {
         "id" : 6,
-        "description" : "Forma de gusano, sin estas caracteristicas.", # Oligochaeta
+        "description" : "Forma de gusano, sin estas caracteristicas", # Oligochaeta
         "image" : "",
         "next" : "oligochaeta"
       }
     }
   },
   {
-    "option" : "Con patas.",
+    "option" : "Con patas",
+    "choice" : 3,
     "cards" : {
       "7" : {
         "id" : 7,
-        "description" : "Seis patas.", 
+        "description" : "Seis patas", 
         "image" : "",
         "next" : 4
       },
       "8" : {
         "id" : 8,
-        "description" : "Ocho patas.", # Arachnida
+        "description" : "Ocho patas", # Arachnida
         "image" : "",
         "next" : "arachnida"
       },
       "9" : {
         "id" : 9,
-        "description" : "Diez o más patas.", # Crustacea
+        "description" : "Diez o más patas", # Crustacea
         "image" : "",
         "next" : "crustacea"
       }
     }
   },
   {
-    "option" : "Seis patas.",
+    "option" : "Seis patas",
+    "choice" : 4,
     "cards" : {
       "10" : {
         "id" : 10,
-        "description" : "Constructores de casas. Con dos ganchos terminales.", # Trichoptera
+        "description" : "Constructores de casas. Con dos ganchos terminales", # Trichoptera
         "image" : "",
         "next" : "trichoptera"
       },
       "11" : {
         "id" : 11,
-        "description" : "Sin estas características.",
+        "description" : "Sin estas características",
         "image" : "",
         "next" : 5
       }
     }
   },
   {
-    "option" : "Sin estas características.",
+    "option" : "Sin estas características",
+    "choice" : 5,
     "cards" : {
       "12" : {
         "id" : 12,
-        "description" : "Colas y antenas largas.",
+        "description" : "Colas y antenas largas",
         "image" : "",
         "next" : 6
       },
       "13" : {
         "id" : 13,
-        "description" : "Colas y antenas cortas.",
+        "description" : "Colas y antenas cortas",
         "image" : "",
         "next" : 7
       }
     }
   },
   {
-    "option" : "Colas y antenas largas.",
+    "option" : "Colas y antenas largas",
+    "choice" : 6,
     "cards" : {
       "14" : {
         "id" : 14,
-        "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales.", # Ephemeroptera
+        "description" : "Dos o tres cercos terminales. Una uña Tarsal. Branquias abdominales", # Ephemeroptera
         "image" : "",
         "next" : "ephemeroptera"
       },
       "15" : {
         "id" : 15,
-        "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales.", # Plecoptera
+        "description" : "Dos cercos abdominales. Dos uñas tarsales. Sin branquias abdominales", # Plecoptera
         "image" : "",
         "next" : "plecoptera"
       }
     }
   },
   {
-    "option" : "Colas y antenas cortas.",
+    "option" : "Colas y antenas cortas",
+    "choice" : 7,
     "cards" : {
       "16" : {
         "id" : 16,
-        "description" : "Mandibulas bien desarrolladas.",
+        "description" : "Mandibulas bien desarrolladas",
        "image" : "",
         "next" : 8
       },
       "17" : {
         "id" : 17,
-        "description" : "Pseudópodos abdominales.", # Lepidoptera
+        "description" : "Pseudópodos abdominales", # Lepidoptera
         "image" : "",
         "next" : "lepidoptera"
       },
       "18" : {
         "id" : 18,
-        "description" : "Piezas bucales en estilete.", # Hemiptera
+        "description" : "Piezas bucales en estilete", # Hemiptera
         "image" : "",
         "next" : "hemiptera"
       }
     }
   },
   {
-    "option" : "Mandíbulas bien desarrolladas.",
+    "option" : "Mandíbulas bien desarrolladas",
+    "choice" : 8,
     "cards" : {
       "19":{
         "id" : 19,
-        "description" : "Prolongaciones laterales. Dos uñas tarsales.", # Megaloptera
+        "description" : "Prolongaciones laterales. Dos uñas tarsales", # Megaloptera
         "image" : "",
         "next" : "megaloptera"
       },
       "20":{
         "id" : 20,
-        "description" : "Mandíbulas prolongables.", # Odonata
+        "description" : "Mandíbulas prolongables", # Odonata
         "image" : "",
         "next" : "odonata"
       },
       "21":{
         "id" : 21,
-        "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña.", # Coleoptera
+        "description" : "Antenas con mas de tres segmentos. Tarso generalmente con uña", # Coleoptera
         "image" : "",
         "next" : "coleoptera"
       }
@@ -186,7 +195,7 @@ my_json = [
 
 macroinvertebrates = {
   "oligochaeta" : {
-    "name" : "",
+    "name" : "oligochaeta",
     "id" : 1000,
     "index" : 1,
     "description" : "Subclase del filo Annelida (anélidos o gusanos segmentados), clase Clitellata (que poseen un clitelo o 'collar' que forma un capullo reproductivo)",
@@ -281,41 +290,41 @@ macroinvertebrates = {
 
 
 class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):   # http://localhost:4443/?preg=0&resp=2
+    def do_GET(self):   # http://localhost:4443/?qu=0&ans=0
         parsed_path = urlparse(self.path)
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
-        # ---  RECOMIENDO QUE TE MIRES FLASK
+        # ---  MIRAR FLASK
 
         parametros_str=parsed_path.query
         array_param = parametros_str.split("&")
-        #print(array_param)
-        if len(array_param) == 2:
-            param_preg = array_param[0].split("=")
-            param_resp = array_param[1].split("=")
-
-            preg_id = int(param_preg[1])
-            resp_id = param_resp[1]
-            pregunta_recien_respondida = my_json[preg_id]
-
-            sel_ans = pregunta_recien_respondida["cards"][resp_id]
-
-            next_item = sel_ans["next"]
-            
-            if type(sel_ans["next"]) == int:
-                self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
+        
+        if len(array_param) == 1:
+            print(array_param)
+            if array_param == ['macroinvertebrates']:
+                self.wfile.write(json.dumps(macroinvertebrates).encode())
             else:
-                self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
+                print("else")
+        elif len(array_param) == 2:
+            if array_param == ['qu=0', 'ans=0']:
+                self.wfile.write(json.dumps(my_json[0]).encode())
+            else:
+                param_qu = array_param[0].split("=")
+                param_ans = array_param[1].split("=")
 
-            # find encontrar la respuesta
+                qu_id = int(param_qu[1])
+                ans_id = param_ans[1]
+                choses_qu = my_json[qu_id]
 
-            # if next es numero
+                sel_ans = choses_qu["cards"][ans_id]
 
-
-          
+                if type(sel_ans["next"]) == int:
+                    self.wfile.write(json.dumps(my_json[sel_ans["next"]]).encode())
+                else:
+                    self.wfile.write(json.dumps(macroinvertebrates[sel_ans["next"]]).encode())
 
         # --
         return

@@ -1,12 +1,27 @@
+* {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+.main {
+  display: flex;
+}
 .card-page {
   &__cards {
     display: flex;
     justify-content: space-around;
   }
 }
-.card {
-  background-color: rgb(119, 170, 153);
-  padding: 10px 30px;
+.pointer {
   cursor: pointer;
-  text-align: center;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  margin-bottom: 5px;
 }
